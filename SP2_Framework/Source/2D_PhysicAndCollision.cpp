@@ -356,6 +356,8 @@ void twoD_scene::Render()
         Vector2(( ( ((1* scale) * (cos(r))) + ((1* scale) * (-sin(r))) ) + translateX), ( (((1* scale) * (sin(r))) + ((1* scale) * cos(r))) + translateY)),
         Vector2(( ( ((-1* scale) * (cos(r))) + ((1* scale) * (-sin(r))) ) + translateX), ( (((-1* scale) * (sin(r))) + ((1* scale) * cos(r))) + translateY)), 
         Vector2(( ( ((-1* scale) * (cos(r))) + ((-1* scale) * (-sin(r))) ) + translateX), ( (((-1* scale) * (sin(r))) + ((-1* scale) * cos(r))) + translateY)));*/
+    sceneStack.PopMatrix();
+
     Translate.SetToTranslation(translateX, translateY, 0);
     Rotate.SetToRotation(r, 0, 0, 1);
     Scale.SetToScale(scale, scale, 4);
@@ -366,7 +368,11 @@ void twoD_scene::Render()
         Translate * Rotate * Scale *Vector2(-1 ,1), 
         Translate * Rotate * Scale *Vector2(-1 ,-1));
 
-    sceneStack.PopMatrix();
+
+
+
+
+
     meshList[GEO_LINE] = MeshBuilder::GenerateLines("line", Color(1, 0, 0), hb1.unitVecX.x + translateX, hb1.unitVecX.y + translateY, hb1.Position.x, hb1.Position.y);
     meshList[GEO_LINE2] = MeshBuilder::GenerateLines("line", Color(0, 0, 1), hb1.unitVecY.x + translateX, hb1.unitVecY.y + translateY, hb1.Position.x, hb1.Position.y);
 
