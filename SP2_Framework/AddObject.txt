@@ -1,0 +1,8 @@
+Mesh *newMesh;
+newMesh = MeshBuilder::GenerateOBJ("abc", abc"OBJ//abc.obj");
+newMesh->textureID = LoadTGA("Image//abc.tga");
+properties TRS;
+Objects newObject;
+newObject.setAll(newMesh, pos, dimension, TRS, true, true, enum_type, NULL);
+
+objectList.push_back(newObject);
